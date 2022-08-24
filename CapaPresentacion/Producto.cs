@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
+using CapaEntidad;
 
 namespace CapaPresentacion
 {
     public partial class Producto : Form
     {
+        CNNatur cnNatur = new CNNatur();
+        
         public Producto()
         {
             InitializeComponent();
@@ -47,6 +51,22 @@ namespace CapaPresentacion
             pnlConsultar.Visible = false;
             pnlEliminar.Visible = true;
             pnlInsertarProducto.Visible = false;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            //bool resultado;
+            CENatur producto = new CENatur();
+            producto.Codigo = int.Parse(txtCodigo.Text);
+            producto.Descripcion = txtDescipcion.Text;
+            producto.valor = double.Parse(txtValor.Text);
+            producto.Nombre = txtNombrePro.Text;
+            producto.cantidad = int.Parse(txtCantidad.Text);
+            if (producto.Codigo != 0)
+            {
+                cnNatur.Insertar(producto);
+            }
+            
         }
     }
 }
