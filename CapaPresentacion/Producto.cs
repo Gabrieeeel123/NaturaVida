@@ -55,14 +55,19 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //bool resultado;
+            bool resultado;
             CENatur producto = new CENatur();
+            resultado = cnNatur.ValidarDatos(producto);
             producto.Codigo = int.Parse(txtCodigo.Text);
             producto.Descripcion = txtDescipcion.Text;
             producto.valor = double.Parse(txtValor.Text);
             producto.Nombre = txtNombrePro.Text;
             producto.cantidad = int.Parse(txtCantidad.Text);
-            if (producto.Codigo != 0)
+            if (resultado==false)
+            {
+                return;
+            }
+            if (producto.Codigo == 0)
             {
                 cnNatur.Insertar(producto);
             }
