@@ -73,5 +73,38 @@ namespace CapaPresentacion
             }
             
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+        }
+        private void LimpiarForm()
+        {
+            txtCodigo.Text = string.Empty;
+            txtNombrePro.Text = string.Empty;
+            txtDescipcion.Text = string.Empty;
+            txtValor.Text = string.Empty;
+            txtCantidad.Text = string.Empty;            
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            var Tabla = cnNatur.Listar();
+            var NumeroFilas = Tabla.Rows.Count;
+            if (NumeroFilas>0)
+            {
+                for (int i = 0; i < NumeroFilas; i++)
+                {
+                    String Nombre = Tabla.Rows[i][1].ToString();
+                    String Descipcion = Tabla.Rows[i][2].ToString();
+                    String Valor = Tabla.Rows[i][2].ToString();
+                    String Cantidad = Tabla.Rows[i][3].ToString();
+                    
+
+                    GridConsultar.Rows.Add(Nombre, Descipcion, Valor, Cantidad);
+                }
+
+            }
+        }
     }
 }

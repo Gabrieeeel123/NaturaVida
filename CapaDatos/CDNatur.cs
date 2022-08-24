@@ -23,9 +23,8 @@ namespace CapaDatos
             mySqlConnection.Close();
             MessageBox.Show("Conexión exitosa");
         }
-        public int Registrar(CENatur cENatur)
-        {
-            int estado = 0;
+        public void Registrar(CENatur cENatur)
+        {            
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             try
             {
@@ -40,7 +39,6 @@ namespace CapaDatos
             {
                 MessageBox.Show("Error");
                 throw;
-                estado = 1;
             }
 
             finally
@@ -49,9 +47,17 @@ namespace CapaDatos
                 {
                     mySqlConnection.Close();
                 }
-            }
-            return estado;
+            }            
+        }    
+        public DataTable Listar()
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            DataTable ds = new DataTable();
+            mySqlConnection.Open();
+            string query = "SELECT * FROM `productos` limit 1000;";
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);
+            adaptador.Fill(ds);
+            return ds;
         }
-
     }
 }

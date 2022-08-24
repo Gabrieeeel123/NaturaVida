@@ -30,32 +30,20 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlConsultar = new System.Windows.Forms.Panel();
+            this.GridConsultar = new System.Windows.Forms.DataGridView();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.txtConsultar = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.insertarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarProdructoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlConsultar = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.txtConsultar = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlEliminar = new System.Windows.Forms.Panel();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtEliminar = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.pnlInsertarProducto = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtNombrePro = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.txtDescipcion = new System.Windows.Forms.TextBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlActualizar = new System.Windows.Forms.Panel();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -69,14 +57,30 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtActualizar = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pnlInsertarProducto = new System.Windows.Forms.Panel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtNombrePro = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtDescipcion = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.proNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.pnlConsultar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridConsultar)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.pnlEliminar.SuspendLayout();
-            this.pnlInsertarProducto.SuspendLayout();
             this.pnlActualizar.SuspendLayout();
+            this.pnlInsertarProducto.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -90,15 +94,70 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.menuStrip1);
             this.groupBox1.Controls.Add(this.pnlConsultar);
+            this.groupBox1.Controls.Add(this.menuStrip1);
             this.groupBox1.Controls.Add(this.pnlEliminar);
+            this.groupBox1.Controls.Add(this.pnlActualizar);
             this.groupBox1.Location = new System.Drawing.Point(12, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 353);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "--------------------------";
+            // 
+            // pnlConsultar
+            // 
+            this.pnlConsultar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlConsultar.Controls.Add(this.GridConsultar);
+            this.pnlConsultar.Controls.Add(this.btnConsultar);
+            this.pnlConsultar.Controls.Add(this.txtConsultar);
+            this.pnlConsultar.Controls.Add(this.label6);
+            this.pnlConsultar.Location = new System.Drawing.Point(0, 46);
+            this.pnlConsultar.Name = "pnlConsultar";
+            this.pnlConsultar.Size = new System.Drawing.Size(765, 307);
+            this.pnlConsultar.TabIndex = 10;
+            this.pnlConsultar.Visible = false;
+            // 
+            // GridConsultar
+            // 
+            this.GridConsultar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridConsultar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.proNombre,
+            this.proDescripcion,
+            this.proValor,
+            this.proCantidad});
+            this.GridConsultar.Location = new System.Drawing.Point(52, 119);
+            this.GridConsultar.Name = "GridConsultar";
+            this.GridConsultar.RowTemplate.Height = 25;
+            this.GridConsultar.Size = new System.Drawing.Size(668, 150);
+            this.GridConsultar.TabIndex = 3;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(320, 66);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 2;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // txtConsultar
+            // 
+            this.txtConsultar.FormattingEnabled = true;
+            this.txtConsultar.Location = new System.Drawing.Point(352, 32);
+            this.txtConsultar.Name = "txtConsultar";
+            this.txtConsultar.Size = new System.Drawing.Size(121, 23);
+            this.txtConsultar.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(229, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 15);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Producto :";
             // 
             // menuStrip1
             // 
@@ -141,54 +200,6 @@
             this.eliminarProductoToolStripMenuItem.Text = "Eliminar producto";
             this.eliminarProductoToolStripMenuItem.Click += new System.EventHandler(this.eliminarProductoToolStripMenuItem_Click);
             // 
-            // pnlConsultar
-            // 
-            this.pnlConsultar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlConsultar.Controls.Add(this.dataGridView1);
-            this.pnlConsultar.Controls.Add(this.btnConsultar);
-            this.pnlConsultar.Controls.Add(this.txtConsultar);
-            this.pnlConsultar.Controls.Add(this.label6);
-            this.pnlConsultar.Location = new System.Drawing.Point(0, 46);
-            this.pnlConsultar.Name = "pnlConsultar";
-            this.pnlConsultar.Size = new System.Drawing.Size(765, 307);
-            this.pnlConsultar.TabIndex = 10;
-            this.pnlConsultar.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(714, 185);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(320, 66);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 2;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            // 
-            // txtConsultar
-            // 
-            this.txtConsultar.FormattingEnabled = true;
-            this.txtConsultar.Location = new System.Drawing.Point(352, 32);
-            this.txtConsultar.Name = "txtConsultar";
-            this.txtConsultar.Size = new System.Drawing.Size(121, 23);
-            this.txtConsultar.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Producto :";
-            // 
             // pnlEliminar
             // 
             this.pnlEliminar.Controls.Add(this.btnEliminar);
@@ -226,119 +237,6 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Producto :";
             // 
-            // pnlInsertarProducto
-            // 
-            this.pnlInsertarProducto.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlInsertarProducto.Controls.Add(this.txtCodigo);
-            this.pnlInsertarProducto.Controls.Add(this.label13);
-            this.pnlInsertarProducto.Controls.Add(this.txtNombrePro);
-            this.pnlInsertarProducto.Controls.Add(this.txtCantidad);
-            this.pnlInsertarProducto.Controls.Add(this.txtValor);
-            this.pnlInsertarProducto.Controls.Add(this.txtDescipcion);
-            this.pnlInsertarProducto.Controls.Add(this.btnLimpiar);
-            this.pnlInsertarProducto.Controls.Add(this.btnGuardar);
-            this.pnlInsertarProducto.Controls.Add(this.label5);
-            this.pnlInsertarProducto.Controls.Add(this.label4);
-            this.pnlInsertarProducto.Controls.Add(this.label3);
-            this.pnlInsertarProducto.Controls.Add(this.label2);
-            this.pnlInsertarProducto.Location = new System.Drawing.Point(12, 115);
-            this.pnlInsertarProducto.Name = "pnlInsertarProducto";
-            this.pnlInsertarProducto.Size = new System.Drawing.Size(765, 307);
-            this.pnlInsertarProducto.TabIndex = 1;
-            this.pnlInsertarProducto.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(229, 93);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 15);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Nombre";
-            // 
-            // txtNombrePro
-            // 
-            this.txtNombrePro.Location = new System.Drawing.Point(373, 90);
-            this.txtNombrePro.Name = "txtNombrePro";
-            this.txtNombrePro.Size = new System.Drawing.Size(100, 23);
-            this.txtNombrePro.TabIndex = 10;
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(373, 185);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 23);
-            this.txtCantidad.TabIndex = 9;
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(373, 156);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(100, 23);
-            this.txtValor.TabIndex = 8;
-            // 
-            // txtDescipcion
-            // 
-            this.txtDescipcion.Location = new System.Drawing.Point(373, 123);
-            this.txtDescipcion.Name = "txtDescipcion";
-            this.txtDescipcion.Size = new System.Drawing.Size(100, 23);
-            this.txtDescipcion.TabIndex = 7;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(389, 227);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 5;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(246, 227);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(229, 188);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 15);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Cantidad:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(229, 159);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 15);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Valor :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(229, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 15);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Descripción :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Codigo:";
-            // 
             // pnlActualizar
             // 
             this.pnlActualizar.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -354,7 +252,7 @@
             this.pnlActualizar.Controls.Add(this.btnBuscar);
             this.pnlActualizar.Controls.Add(this.txtActualizar);
             this.pnlActualizar.Controls.Add(this.label7);
-            this.pnlActualizar.Location = new System.Drawing.Point(12, 115);
+            this.pnlActualizar.Location = new System.Drawing.Point(3, 46);
             this.pnlActualizar.Name = "pnlActualizar";
             this.pnlActualizar.Size = new System.Drawing.Size(765, 307);
             this.pnlActualizar.TabIndex = 4;
@@ -459,38 +357,172 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Producto :";
             // 
+            // pnlInsertarProducto
+            // 
+            this.pnlInsertarProducto.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlInsertarProducto.Controls.Add(this.txtCodigo);
+            this.pnlInsertarProducto.Controls.Add(this.label13);
+            this.pnlInsertarProducto.Controls.Add(this.txtNombrePro);
+            this.pnlInsertarProducto.Controls.Add(this.txtCantidad);
+            this.pnlInsertarProducto.Controls.Add(this.txtValor);
+            this.pnlInsertarProducto.Controls.Add(this.txtDescipcion);
+            this.pnlInsertarProducto.Controls.Add(this.btnLimpiar);
+            this.pnlInsertarProducto.Controls.Add(this.btnGuardar);
+            this.pnlInsertarProducto.Controls.Add(this.label5);
+            this.pnlInsertarProducto.Controls.Add(this.label4);
+            this.pnlInsertarProducto.Controls.Add(this.label3);
+            this.pnlInsertarProducto.Controls.Add(this.label2);
+            this.pnlInsertarProducto.Location = new System.Drawing.Point(12, 115);
+            this.pnlInsertarProducto.Name = "pnlInsertarProducto";
+            this.pnlInsertarProducto.Size = new System.Drawing.Size(765, 307);
+            this.pnlInsertarProducto.TabIndex = 1;
+            this.pnlInsertarProducto.Visible = false;
+            // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(374, 57);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 23);
             this.txtCodigo.TabIndex = 12;
+            this.txtCodigo.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(229, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(51, 15);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Nombre";
+            // 
+            // txtNombrePro
+            // 
+            this.txtNombrePro.Location = new System.Drawing.Point(373, 90);
+            this.txtNombrePro.Name = "txtNombrePro";
+            this.txtNombrePro.Size = new System.Drawing.Size(100, 23);
+            this.txtNombrePro.TabIndex = 10;
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(373, 185);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(100, 23);
+            this.txtCantidad.TabIndex = 9;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(373, 156);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(100, 23);
+            this.txtValor.TabIndex = 8;
+            // 
+            // txtDescipcion
+            // 
+            this.txtDescipcion.Location = new System.Drawing.Point(373, 123);
+            this.txtDescipcion.Name = "txtDescipcion";
+            this.txtDescipcion.Size = new System.Drawing.Size(100, 23);
+            this.txtDescipcion.TabIndex = 7;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(389, 227);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 5;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(246, 227);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(229, 188);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 15);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Cantidad:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(229, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Valor :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(229, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 15);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Descripción :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(229, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Codigo:";
+            // 
+            // proNombre
+            // 
+            this.proNombre.HeaderText = "Nombre";
+            this.proNombre.Name = "proNombre";
+            // 
+            // proDescripcion
+            // 
+            this.proDescripcion.HeaderText = "Descripcion";
+            this.proDescripcion.Name = "proDescripcion";
+            // 
+            // proValor
+            // 
+            this.proValor.HeaderText = "Valor";
+            this.proValor.Name = "proValor";
+            // 
+            // proCantidad
+            // 
+            this.proCantidad.HeaderText = "Cantidad";
+            this.proCantidad.Name = "proCantidad";
             // 
             // Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnlInsertarProducto);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlActualizar);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pnlInsertarProducto);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Producto";
             this.Text = "Producto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.pnlConsultar.ResumeLayout(false);
             this.pnlConsultar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridConsultar)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.pnlEliminar.ResumeLayout(false);
             this.pnlEliminar.PerformLayout();
-            this.pnlInsertarProducto.ResumeLayout(false);
-            this.pnlInsertarProducto.PerformLayout();
             this.pnlActualizar.ResumeLayout(false);
             this.pnlActualizar.PerformLayout();
+            this.pnlInsertarProducto.ResumeLayout(false);
+            this.pnlInsertarProducto.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,7 +538,6 @@
         private ToolStripMenuItem actualizarProdructoToolStripMenuItem;
         private ToolStripMenuItem eliminarProductoToolStripMenuItem;
         private Panel pnlConsultar;
-        private DataGridView dataGridView1;
         private Button btnConsultar;
         private ComboBox txtConsultar;
         private Label label6;
@@ -540,5 +571,10 @@
         private TextBox txtNombre;
         private Label label12;
         private TextBox txtCodigo;
+        private DataGridView GridConsultar;
+        private DataGridViewTextBoxColumn proNombre;
+        private DataGridViewTextBoxColumn proDescripcion;
+        private DataGridViewTextBoxColumn proValor;
+        private DataGridViewTextBoxColumn proCantidad;
     }
 }

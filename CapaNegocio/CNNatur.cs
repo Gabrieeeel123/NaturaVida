@@ -44,5 +44,9 @@ namespace CapaNegocio
         {
             cDNatur.Registrar(cENatur);
         }
+        public DataTable Listar()
+        {
+            return cDNatur.Listar();
+        }
     }
 }
