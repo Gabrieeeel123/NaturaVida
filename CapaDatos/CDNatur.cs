@@ -81,5 +81,46 @@ namespace CapaDatos
             mySqlConnection.Close();
             MessageBox.Show("Registro Eliminado");
         }
+        public MySqlDataReader BuscarPorCodigo(int cENatur)
+        {           
+            string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
+            MySqlDataReader reader = null;
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"Select * from productos where (proCodigo = {cENatur});";
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+            reader = cmd.ExecuteReader();
+            return reader;
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Encontrado");
+            
+        }
+        public void Actualizar(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            try
+            {
+                mySqlConnection.Open();
+                string Query = $"UPDATE `productos` SET `proNombre` = '{cENatur.Nombre}', `proDescripcion` = '{cENatur.Descripcion}', `proValor` = '{cENatur.valor}', `proCantidad` = '{cENatur.cantidad}' " +
+                    $"WHERE (`proCodigo` = '{cENatur.Codigo}');";
+                MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Actualizacion exitosa");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error");
+                throw;
+            }
+
+            finally
+            {
+                if (mySqlConnection.State == ConnectionState.Open)
+                {
+                    mySqlConnection.Close();
+                }
+            }
+        }
     }
 }

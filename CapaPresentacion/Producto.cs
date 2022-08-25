@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidad;
+using MySql.Data.MySqlClient;
 
 namespace CapaPresentacion
 {
     public partial class Producto : Form
     {
         CNNatur cnNatur = new CNNatur();
-        
+
         public Producto()
         {
             InitializeComponent();
@@ -23,9 +24,9 @@ namespace CapaPresentacion
 
         private void insertarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlActualizar.Visible=false;
+            pnlActualizar.Visible = false;
             pnlConsultar.Visible = false;
-            pnlEliminar.Visible=false;
+            pnlEliminar.Visible = false;
             pnlInsertarProducto.Visible = true;
         }
 
@@ -43,6 +44,7 @@ namespace CapaPresentacion
             pnlConsultar.Visible = false;
             pnlEliminar.Visible = false;
             pnlInsertarProducto.Visible = false;
+           
         }
 
         private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace CapaPresentacion
             producto.valor = double.Parse(txtValor.Text);
             producto.Nombre = txtNombrePro.Text;
             producto.cantidad = int.Parse(txtCantidad.Text);
-            if (resultado==false)
+            if (resultado == false)
             {
                 return;
             }
@@ -71,7 +73,7 @@ namespace CapaPresentacion
             {
                 cnNatur.Insertar(producto);
             }
-            
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -84,21 +86,21 @@ namespace CapaPresentacion
             txtNombrePro.Text = string.Empty;
             txtDescipcion.Text = string.Empty;
             txtValor.Text = string.Empty;
-            txtCantidad.Text = string.Empty;            
+            txtCantidad.Text = string.Empty;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             var Tabla = cnNatur.Listar();
             var NumeroFilas = Tabla.Rows.Count;
-            if (NumeroFilas>0)
+            if (NumeroFilas > 0)
             {
                 for (int i = 0; i < NumeroFilas; i++)
                 {
                     String Nombre = Tabla.Rows[i][1].ToString();
                     String Descipcion = Tabla.Rows[i][2].ToString();
-                    String Valor = Tabla.Rows[i][2].ToString();
-                    String Cantidad = Tabla.Rows[i][3].ToString();            
+                    String Valor = Tabla.Rows[i][3].ToString();
+                    String Cantidad = Tabla.Rows[i][4].ToString();
 
                     GridConsultar.Rows.Add(Nombre, Descipcion, Valor, Cantidad);
                 }
@@ -110,21 +112,21 @@ namespace CapaPresentacion
         {
             var funciones = new CNNatur();
             txtActualizar.DataSource = funciones.ListarProductos();
-            txtActualizar.DisplayMember = "proNombre";            
+            txtActualizar.DisplayMember = "proCodigo";
+
             txtEliminar.DataSource = funciones.ListarProductos();
-            txtEliminar.DisplayMember = "proCodigo";            
+            txtEliminar.DisplayMember = "proCodigo";
+
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            /*var EliminarProducto = new CNNatur();
-            int Codigo = txtEliminar.Select.ToString();
-            EliminarProducto.Deletear(Codigo);*/
 
             if (txtEliminar.Text == "0") return;
             if (MessageBox.Show("¿Desea eliminar el registro?", "Titulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                CENatur producto = new CENatur();                
+                CENatur producto = new CENatur();
                 producto.Codigo = int.Parse(txtEliminar.Text);
                 cnNatur.Deletear(producto);
                 /*CargarDatos();
@@ -132,6 +134,37 @@ namespace CapaPresentacion
             }
         }
 
-        
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {         
+            
+            MySqlDataReader reader = cnNatur.BuscarPorCodigo(int.Parse(txtActualizar.Text));           
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    txtCodigoAc.Text = reader.GetString(0);
+                    txtNombre.Text = reader.GetString(1);
+                    txtDescAct.Text = reader.GetString(2);
+                    txtValorAc.Text = reader.GetString(3);
+                    txtCanAc.Text = reader.GetString(4);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontro el registro");
+            }
+
+        }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            CENatur producto = new CENatur();
+            producto.Codigo = int.Parse(txtCodigoAc.Text);
+            producto.Descripcion = txtDescAct.Text;
+            producto.valor = double.Parse(txtValorAc.Text);
+            producto.Nombre = txtNombre.Text;
+            producto.cantidad = int.Parse(txtCanAc.Text);
+            cnNatur.ActualizarDatos(producto);
+        }
     }
 }

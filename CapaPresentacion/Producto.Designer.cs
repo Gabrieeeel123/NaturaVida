@@ -36,6 +36,8 @@
             this.actualizarProdructoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlActualizar = new System.Windows.Forms.Panel();
+            this.txtCanAc = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtValorAc = new System.Windows.Forms.TextBox();
@@ -95,9 +97,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.menuStrip1);
-            this.groupBox1.Controls.Add(this.pnlEliminar);
             this.groupBox1.Controls.Add(this.pnlActualizar);
             this.groupBox1.Controls.Add(this.pnlConsultar);
+            this.groupBox1.Controls.Add(this.pnlEliminar);
             this.groupBox1.Location = new System.Drawing.Point(12, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 353);
@@ -149,6 +151,8 @@
             // pnlActualizar
             // 
             this.pnlActualizar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlActualizar.Controls.Add(this.txtCanAc);
+            this.pnlActualizar.Controls.Add(this.label14);
             this.pnlActualizar.Controls.Add(this.txtNombre);
             this.pnlActualizar.Controls.Add(this.label12);
             this.pnlActualizar.Controls.Add(this.txtValorAc);
@@ -167,9 +171,25 @@
             this.pnlActualizar.TabIndex = 4;
             this.pnlActualizar.Visible = false;
             // 
+            // txtCanAc
+            // 
+            this.txtCanAc.Location = new System.Drawing.Point(347, 246);
+            this.txtCanAc.Name = "txtCanAc";
+            this.txtCanAc.Size = new System.Drawing.Size(100, 23);
+            this.txtCanAc.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(236, 252);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 15);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Cantidad";
+            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(332, 115);
+            this.txtNombre.Location = new System.Drawing.Point(347, 138);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 23);
             this.txtNombre.TabIndex = 11;
@@ -177,7 +197,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(221, 120);
+            this.label12.Location = new System.Drawing.Point(236, 143);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(51, 15);
             this.label12.TabIndex = 10;
@@ -185,21 +205,21 @@
             // 
             // txtValorAc
             // 
-            this.txtValorAc.Location = new System.Drawing.Point(332, 228);
+            this.txtValorAc.Location = new System.Drawing.Point(346, 211);
             this.txtValorAc.Name = "txtValorAc";
             this.txtValorAc.Size = new System.Drawing.Size(100, 23);
             this.txtValorAc.TabIndex = 9;
             // 
             // txtDescAct
             // 
-            this.txtDescAct.Location = new System.Drawing.Point(332, 191);
+            this.txtDescAct.Location = new System.Drawing.Point(346, 174);
             this.txtDescAct.Name = "txtDescAct";
             this.txtDescAct.Size = new System.Drawing.Size(100, 23);
             this.txtDescAct.TabIndex = 8;
             // 
             // txtCodigoAc
             // 
-            this.txtCodigoAc.Location = new System.Drawing.Point(332, 152);
+            this.txtCodigoAc.Location = new System.Drawing.Point(346, 105);
             this.txtCodigoAc.Name = "txtCodigoAc";
             this.txtCodigoAc.Size = new System.Drawing.Size(100, 23);
             this.txtCodigoAc.TabIndex = 7;
@@ -212,11 +232,12 @@
             this.btnGuardarCambios.TabIndex = 6;
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(221, 236);
+            this.label10.Location = new System.Drawing.Point(235, 219);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 15);
             this.label10.TabIndex = 5;
@@ -225,7 +246,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(221, 194);
+            this.label9.Location = new System.Drawing.Point(235, 177);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 15);
             this.label9.TabIndex = 4;
@@ -234,7 +255,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(221, 155);
+            this.label8.Location = new System.Drawing.Point(235, 108);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 15);
             this.label8.TabIndex = 3;
@@ -248,6 +269,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtActualizar
             // 
@@ -506,8 +528,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlInsertarProducto);
+            this.Controls.Add(this.groupBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Producto";
             this.Text = "Producto";
@@ -578,5 +600,7 @@
         private DataGridViewTextBoxColumn proDescripcion;
         private DataGridViewTextBoxColumn proValor;
         private DataGridViewTextBoxColumn proCantidad;
+        private TextBox txtCanAc;
+        private Label label14;
     }
 }

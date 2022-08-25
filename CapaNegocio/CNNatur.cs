@@ -56,5 +56,14 @@ namespace CapaNegocio
         {
             cDNatur.Deletear(cENatur);
         }
+        public MySqlDataReader BuscarPorCodigo(int cENatur)
+        {
+            return cDNatur.BuscarPorCodigo(cENatur);
+        }
+        public void ActualizarDatos(CENatur cENatur)
+        {
+            cDNatur.Actualizar(cENatur);
+        }
+        
     }
 }
