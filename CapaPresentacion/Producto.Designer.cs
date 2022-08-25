@@ -57,8 +57,6 @@
             this.proValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.txtConsultar = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlEliminar = new System.Windows.Forms.Panel();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtEliminar = new System.Windows.Forms.ComboBox();
@@ -97,9 +95,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.menuStrip1);
-            this.groupBox1.Controls.Add(this.pnlActualizar);
             this.groupBox1.Controls.Add(this.pnlConsultar);
             this.groupBox1.Controls.Add(this.pnlEliminar);
+            this.groupBox1.Controls.Add(this.pnlActualizar);
             this.groupBox1.Location = new System.Drawing.Point(12, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 353);
@@ -293,8 +291,6 @@
             this.pnlConsultar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pnlConsultar.Controls.Add(this.GridConsultar);
             this.pnlConsultar.Controls.Add(this.btnConsultar);
-            this.pnlConsultar.Controls.Add(this.txtConsultar);
-            this.pnlConsultar.Controls.Add(this.label6);
             this.pnlConsultar.Location = new System.Drawing.Point(0, 46);
             this.pnlConsultar.Name = "pnlConsultar";
             this.pnlConsultar.Size = new System.Drawing.Size(765, 307);
@@ -309,10 +305,10 @@
             this.proDescripcion,
             this.proValor,
             this.proCantidad});
-            this.GridConsultar.Location = new System.Drawing.Point(152, 138);
+            this.GridConsultar.Location = new System.Drawing.Point(157, 86);
             this.GridConsultar.Name = "GridConsultar";
             this.GridConsultar.RowTemplate.Height = 25;
-            this.GridConsultar.Size = new System.Drawing.Size(455, 150);
+            this.GridConsultar.Size = new System.Drawing.Size(443, 150);
             this.GridConsultar.TabIndex = 3;
             // 
             // proNombre
@@ -337,30 +333,13 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(335, 85);
+            this.btnConsultar.Location = new System.Drawing.Point(335, 28);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 2;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // txtConsultar
-            // 
-            this.txtConsultar.FormattingEnabled = true;
-            this.txtConsultar.Location = new System.Drawing.Point(353, 37);
-            this.txtConsultar.Name = "txtConsultar";
-            this.txtConsultar.Size = new System.Drawing.Size(121, 23);
-            this.txtConsultar.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(230, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Producto :";
             // 
             // pnlEliminar
             // 
@@ -541,7 +520,6 @@
             this.pnlActualizar.ResumeLayout(false);
             this.pnlActualizar.PerformLayout();
             this.pnlConsultar.ResumeLayout(false);
-            this.pnlConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridConsultar)).EndInit();
             this.pnlEliminar.ResumeLayout(false);
             this.pnlEliminar.PerformLayout();
@@ -563,8 +541,6 @@
         private ToolStripMenuItem eliminarProductoToolStripMenuItem;
         private Panel pnlConsultar;
         private Button btnConsultar;
-        private ComboBox txtConsultar;
-        private Label label6;
         private Panel pnlInsertarProducto;
         private Panel pnlActualizar;
         private TextBox txtValorAc;

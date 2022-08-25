@@ -65,13 +65,15 @@ namespace CapaPresentacion
             producto.valor = double.Parse(txtValor.Text);
             producto.Nombre = txtNombrePro.Text;
             producto.cantidad = int.Parse(txtCantidad.Text);
-            if (resultado == false)
-            {
-                return;
-            }
-            if (producto.Codigo == 0)
+            
+            if (producto.Codigo > 0)
             {
                 cnNatur.Insertar(producto);
+                LimpiarForm();
+            }
+            else
+            {
+                MessageBox.Show("El campo codigo es invalido");
             }
 
         }
@@ -91,6 +93,7 @@ namespace CapaPresentacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            GridConsultar.Rows.Clear();
             var Tabla = cnNatur.Listar();
             var NumeroFilas = Tabla.Rows.Count;
             if (NumeroFilas > 0)
@@ -129,8 +132,7 @@ namespace CapaPresentacion
                 CENatur producto = new CENatur();
                 producto.Codigo = int.Parse(txtEliminar.Text);
                 cnNatur.Deletear(producto);
-                /*CargarDatos();
-                LimpiarForm();*/
+                txtEliminar.Text = "";
             }
         }
 
@@ -165,6 +167,12 @@ namespace CapaPresentacion
             producto.Nombre = txtNombre.Text;
             producto.cantidad = int.Parse(txtCanAc.Text);
             cnNatur.ActualizarDatos(producto);
+
+            txtCodigoAc.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtDescAct.Text = string.Empty;
+            txtValorAc.Text = string.Empty;
+            txtCanAc.Text = string.Empty;
         }
     }
 }

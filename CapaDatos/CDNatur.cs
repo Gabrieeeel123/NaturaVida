@@ -29,7 +29,7 @@ namespace CapaDatos
             try
             {
                 mySqlConnection.Open();
-                string Query = $"INSERT INTO `productos` (`proCodigo`,`proDescripcion`, `proValor`, `proCantidad`, `proNombre`) VALUES ('{cENatur.Codigo}','{cENatur.Descripcion}', '{cENatur.valor}', '{cENatur.cantidad}', '{cENatur.Nombre}');";
+                string Query = $"INSERT INTO `productos` (`proCodigo`, `proNombre`, `proDescripcion`, `proValor`, `proCantidad`) VALUES ('{cENatur.Codigo}', '{cENatur.Nombre}', '{cENatur.Descripcion}', '{cENatur.valor}', '{cENatur.cantidad}');";
                 MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
                 cmd.ExecuteNonQuery();
                 mySqlConnection.Close();
