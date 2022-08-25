@@ -48,5 +48,13 @@ namespace CapaNegocio
         {
             return cDNatur.Listar();
         }
+        public DataTable ListarProductos()
+        {
+            return cDNatur.ListarProductos();
+        }
+        public void Deletear(CENatur cENatur)
+        {
+            cDNatur.Deletear(cENatur);
+        }
     }
 }

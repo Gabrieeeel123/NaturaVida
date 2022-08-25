@@ -30,20 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnlConsultar = new System.Windows.Forms.Panel();
-            this.GridConsultar = new System.Windows.Forms.DataGridView();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.txtConsultar = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.insertarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarProdructoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlEliminar = new System.Windows.Forms.Panel();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtEliminar = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.pnlActualizar = new System.Windows.Forms.Panel();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -57,6 +48,19 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtActualizar = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pnlConsultar = new System.Windows.Forms.Panel();
+            this.GridConsultar = new System.Windows.Forms.DataGridView();
+            this.proNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.txtConsultar = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pnlEliminar = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtEliminar = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.pnlInsertarProducto = new System.Windows.Forms.Panel();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -70,23 +74,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.proNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.pnlActualizar.SuspendLayout();
             this.pnlConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridConsultar)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.pnlEliminar.SuspendLayout();
-            this.pnlActualizar.SuspendLayout();
             this.pnlInsertarProducto.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(309, 42);
+            this.label1.Location = new System.Drawing.Point(347, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 15);
             this.label1.TabIndex = 0;
@@ -94,70 +94,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pnlConsultar);
             this.groupBox1.Controls.Add(this.menuStrip1);
             this.groupBox1.Controls.Add(this.pnlEliminar);
             this.groupBox1.Controls.Add(this.pnlActualizar);
+            this.groupBox1.Controls.Add(this.pnlConsultar);
             this.groupBox1.Location = new System.Drawing.Point(12, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 353);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "--------------------------";
-            // 
-            // pnlConsultar
-            // 
-            this.pnlConsultar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlConsultar.Controls.Add(this.GridConsultar);
-            this.pnlConsultar.Controls.Add(this.btnConsultar);
-            this.pnlConsultar.Controls.Add(this.txtConsultar);
-            this.pnlConsultar.Controls.Add(this.label6);
-            this.pnlConsultar.Location = new System.Drawing.Point(0, 46);
-            this.pnlConsultar.Name = "pnlConsultar";
-            this.pnlConsultar.Size = new System.Drawing.Size(765, 307);
-            this.pnlConsultar.TabIndex = 10;
-            this.pnlConsultar.Visible = false;
-            // 
-            // GridConsultar
-            // 
-            this.GridConsultar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridConsultar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.proNombre,
-            this.proDescripcion,
-            this.proValor,
-            this.proCantidad});
-            this.GridConsultar.Location = new System.Drawing.Point(52, 119);
-            this.GridConsultar.Name = "GridConsultar";
-            this.GridConsultar.RowTemplate.Height = 25;
-            this.GridConsultar.Size = new System.Drawing.Size(668, 150);
-            this.GridConsultar.TabIndex = 3;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(320, 66);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 2;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // txtConsultar
-            // 
-            this.txtConsultar.FormattingEnabled = true;
-            this.txtConsultar.Location = new System.Drawing.Point(352, 32);
-            this.txtConsultar.Name = "txtConsultar";
-            this.txtConsultar.Size = new System.Drawing.Size(121, 23);
-            this.txtConsultar.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Producto :";
             // 
             // menuStrip1
             // 
@@ -199,43 +145,6 @@
             this.eliminarProductoToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
             this.eliminarProductoToolStripMenuItem.Text = "Eliminar producto";
             this.eliminarProductoToolStripMenuItem.Click += new System.EventHandler(this.eliminarProductoToolStripMenuItem_Click);
-            // 
-            // pnlEliminar
-            // 
-            this.pnlEliminar.Controls.Add(this.btnEliminar);
-            this.pnlEliminar.Controls.Add(this.txtEliminar);
-            this.pnlEliminar.Controls.Add(this.label11);
-            this.pnlEliminar.Location = new System.Drawing.Point(0, 46);
-            this.pnlEliminar.Name = "pnlEliminar";
-            this.pnlEliminar.Size = new System.Drawing.Size(765, 307);
-            this.pnlEliminar.TabIndex = 10;
-            this.pnlEliminar.Visible = false;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(320, 169);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 5;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // txtEliminar
-            // 
-            this.txtEliminar.FormattingEnabled = true;
-            this.txtEliminar.Location = new System.Drawing.Point(371, 115);
-            this.txtEliminar.Name = "txtEliminar";
-            this.txtEliminar.Size = new System.Drawing.Size(121, 23);
-            this.txtEliminar.TabIndex = 4;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(216, 120);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 15);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Producto :";
             // 
             // pnlActualizar
             // 
@@ -356,6 +265,118 @@
             this.label7.Size = new System.Drawing.Size(62, 15);
             this.label7.TabIndex = 0;
             this.label7.Text = "Producto :";
+            // 
+            // pnlConsultar
+            // 
+            this.pnlConsultar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlConsultar.Controls.Add(this.GridConsultar);
+            this.pnlConsultar.Controls.Add(this.btnConsultar);
+            this.pnlConsultar.Controls.Add(this.txtConsultar);
+            this.pnlConsultar.Controls.Add(this.label6);
+            this.pnlConsultar.Location = new System.Drawing.Point(0, 46);
+            this.pnlConsultar.Name = "pnlConsultar";
+            this.pnlConsultar.Size = new System.Drawing.Size(765, 307);
+            this.pnlConsultar.TabIndex = 10;
+            this.pnlConsultar.Visible = false;
+            // 
+            // GridConsultar
+            // 
+            this.GridConsultar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridConsultar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.proNombre,
+            this.proDescripcion,
+            this.proValor,
+            this.proCantidad});
+            this.GridConsultar.Location = new System.Drawing.Point(152, 138);
+            this.GridConsultar.Name = "GridConsultar";
+            this.GridConsultar.RowTemplate.Height = 25;
+            this.GridConsultar.Size = new System.Drawing.Size(455, 150);
+            this.GridConsultar.TabIndex = 3;
+            // 
+            // proNombre
+            // 
+            this.proNombre.HeaderText = "Nombre";
+            this.proNombre.Name = "proNombre";
+            // 
+            // proDescripcion
+            // 
+            this.proDescripcion.HeaderText = "Descripcion";
+            this.proDescripcion.Name = "proDescripcion";
+            // 
+            // proValor
+            // 
+            this.proValor.HeaderText = "Valor";
+            this.proValor.Name = "proValor";
+            // 
+            // proCantidad
+            // 
+            this.proCantidad.HeaderText = "Cantidad";
+            this.proCantidad.Name = "proCantidad";
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(335, 85);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 2;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // txtConsultar
+            // 
+            this.txtConsultar.FormattingEnabled = true;
+            this.txtConsultar.Location = new System.Drawing.Point(353, 37);
+            this.txtConsultar.Name = "txtConsultar";
+            this.txtConsultar.Size = new System.Drawing.Size(121, 23);
+            this.txtConsultar.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(230, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 15);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Producto :";
+            // 
+            // pnlEliminar
+            // 
+            this.pnlEliminar.Controls.Add(this.btnEliminar);
+            this.pnlEliminar.Controls.Add(this.txtEliminar);
+            this.pnlEliminar.Controls.Add(this.label11);
+            this.pnlEliminar.Location = new System.Drawing.Point(0, 46);
+            this.pnlEliminar.Name = "pnlEliminar";
+            this.pnlEliminar.Size = new System.Drawing.Size(765, 307);
+            this.pnlEliminar.TabIndex = 10;
+            this.pnlEliminar.Visible = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(320, 169);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // txtEliminar
+            // 
+            this.txtEliminar.FormattingEnabled = true;
+            this.txtEliminar.Location = new System.Drawing.Point(371, 115);
+            this.txtEliminar.Name = "txtEliminar";
+            this.txtEliminar.Size = new System.Drawing.Size(121, 23);
+            this.txtEliminar.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(216, 120);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 15);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Producto :";
             // 
             // pnlInsertarProducto
             // 
@@ -479,26 +500,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Codigo:";
             // 
-            // proNombre
-            // 
-            this.proNombre.HeaderText = "Nombre";
-            this.proNombre.Name = "proNombre";
-            // 
-            // proDescripcion
-            // 
-            this.proDescripcion.HeaderText = "Descripcion";
-            this.proDescripcion.Name = "proDescripcion";
-            // 
-            // proValor
-            // 
-            this.proValor.HeaderText = "Valor";
-            this.proValor.Name = "proValor";
-            // 
-            // proCantidad
-            // 
-            this.proCantidad.HeaderText = "Cantidad";
-            this.proCantidad.Name = "proCantidad";
-            // 
             // Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -510,17 +511,18 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Producto";
             this.Text = "Producto";
+            this.Load += new System.EventHandler(this.Producto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.pnlActualizar.ResumeLayout(false);
+            this.pnlActualizar.PerformLayout();
             this.pnlConsultar.ResumeLayout(false);
             this.pnlConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridConsultar)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.pnlEliminar.ResumeLayout(false);
             this.pnlEliminar.PerformLayout();
-            this.pnlActualizar.ResumeLayout(false);
-            this.pnlActualizar.PerformLayout();
             this.pnlInsertarProducto.ResumeLayout(false);
             this.pnlInsertarProducto.PerformLayout();
             this.ResumeLayout(false);

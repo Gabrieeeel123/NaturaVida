@@ -59,5 +59,27 @@ namespace CapaDatos
             adaptador.Fill(ds);
             return ds;
         }
+        public DataTable ListarProductos()
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            DataTable ds = new DataTable();
+            mySqlConnection.Open();
+            string query = "SELECT `proCodigo`, `proNombre` FROM `productos` limit 1000;";
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);
+            adaptador.Fill(ds);
+            return ds;
+        }
+
+
+        public void Deletear(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"DELETE FROM `productos` WHERE (`proCodigo` = '{cENatur.Codigo}'); ";
+            MySqlCommand cmd = new MySqlCommand(query,mySqlConnection);
+            cmd.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Eliminado");
+        }
     }
 }

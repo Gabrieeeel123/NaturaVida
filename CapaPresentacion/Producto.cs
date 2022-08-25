@@ -98,13 +98,40 @@ namespace CapaPresentacion
                     String Nombre = Tabla.Rows[i][1].ToString();
                     String Descipcion = Tabla.Rows[i][2].ToString();
                     String Valor = Tabla.Rows[i][2].ToString();
-                    String Cantidad = Tabla.Rows[i][3].ToString();
-                    
+                    String Cantidad = Tabla.Rows[i][3].ToString();            
 
                     GridConsultar.Rows.Add(Nombre, Descipcion, Valor, Cantidad);
                 }
 
             }
         }
+
+        private void Producto_Load(object sender, EventArgs e)
+        {
+            var funciones = new CNNatur();
+            txtActualizar.DataSource = funciones.ListarProductos();
+            txtActualizar.DisplayMember = "proNombre";            
+            txtEliminar.DataSource = funciones.ListarProductos();
+            txtEliminar.DisplayMember = "proCodigo";            
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            /*var EliminarProducto = new CNNatur();
+            int Codigo = txtEliminar.Select.ToString();
+            EliminarProducto.Deletear(Codigo);*/
+
+            if (txtEliminar.Text == "0") return;
+            if (MessageBox.Show("¿Desea eliminar el registro?", "Titulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CENatur producto = new CENatur();                
+                producto.Codigo = int.Parse(txtEliminar.Text);
+                cnNatur.Deletear(producto);
+                /*CargarDatos();
+                LimpiarForm();*/
+            }
+        }
+
+        
     }
 }
