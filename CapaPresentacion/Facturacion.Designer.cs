@@ -129,6 +129,7 @@
             this.btnTerminarFactura.TabIndex = 9;
             this.btnTerminarFactura.Text = "Terminar Factura";
             this.btnTerminarFactura.UseVisualStyleBackColor = true;
+            this.btnTerminarFactura.Click += new System.EventHandler(this.btnTerminarFactura_Click);
             // 
             // label6
             // 
@@ -154,6 +155,7 @@
             this.btnAgregarProducto.TabIndex = 12;
             this.btnAgregarProducto.Text = "Agregar Producto";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // txtTotalFactura
             // 
@@ -171,7 +173,7 @@
             this.GridFactura.Size = new System.Drawing.Size(707, 186);
             this.GridFactura.TabIndex = 14;
             // 
-            // Formulario
+            // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,8 +193,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Formulario";
+            this.Name = "Facturacion";
             this.Text = "Formulario";
+            this.Load += new System.EventHandler(this.Facturacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

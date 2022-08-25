@@ -64,6 +64,22 @@ namespace CapaNegocio
         {
             cDNatur.Actualizar(cENatur);
         }
+        public DataTable ListarClientes()
+        {
+            return cDNatur.ListarClientes();
+        }
+        public void Facturar(CENatur cENatur)
+        {
+            cDNatur.Facturar(cENatur);
+        }
+        public void AgregarProducto(CENatur cENatur)
+        {
+            cDNatur.AgregarProductoFactura(cENatur);
+        }
+        public MySqlDataReader ListarFactura(int cENatur)
+        {
+            return cDNatur.ListarFactura(cENatur);
+        }
         
     }
 }

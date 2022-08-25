@@ -69,8 +69,6 @@ namespace CapaDatos
             adaptador.Fill(ds);
             return ds;
         }
-
-
         public void Deletear(CENatur cENatur)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
@@ -92,8 +90,7 @@ namespace CapaDatos
             reader = cmd.ExecuteReader();
             return reader;
             mySqlConnection.Close();
-            MessageBox.Show("Registro Encontrado");
-            
+            MessageBox.Show("Registro Encontrado");            
         }
         public void Actualizar(CENatur cENatur)
         {
@@ -101,8 +98,7 @@ namespace CapaDatos
             try
             {
                 mySqlConnection.Open();
-                string Query = $"UPDATE `productos` SET `proNombre` = '{cENatur.Nombre}', `proDescripcion` = '{cENatur.Descripcion}', `proValor` = '{cENatur.valor}', `proCantidad` = '{cENatur.cantidad}' " +
-                    $"WHERE (`proCodigo` = '{cENatur.Codigo}');";
+                string Query = $"UPDATE `productos` SET `proNombre` = '{cENatur.Nombre}', `proDescripcion` = '{cENatur.Descripcion}', `proValor` = '{cENatur.valor}', `proCantidad` = '{cENatur.cantidad}' WHERE (`proCodigo` = '{cENatur.Codigo}');";
                 MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
                 cmd.ExecuteNonQuery();
                 mySqlConnection.Close();
@@ -121,6 +117,84 @@ namespace CapaDatos
                     mySqlConnection.Close();
                 }
             }
+        }
+        public DataTable ListarClientes()
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            DataTable ds = new DataTable();
+            mySqlConnection.Open();
+            string query = "SELECT `cliDocumento`, `cliNombre` FROM `clientes` limit 1000;";
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);
+            adaptador.Fill(ds);
+            return ds;
+        }
+        public void Facturar(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            try
+            {
+                mySqlConnection.Open();
+                string Query = $"INSERT INTO `facturas` (`facNumero`, `facFecha`, `facCliente`, `facValorTotal`, `facVendedor`) " +
+                    $" VALUES ('{cENatur.facNumero}', '{cENatur.facFecha}', '{cENatur.facCliente}', '{cENatur.facValorTotal}', '{cENatur.facVen}');";
+                MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Registro exitoso");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error");
+                throw;
+            }
+
+            finally
+            {
+                if (mySqlConnection.State == ConnectionState.Open)
+                {
+                    mySqlConnection.Close();
+                }
+            }
+        }
+        public void AgregarProductoFactura(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            try
+            {
+                mySqlConnection.Open();
+                string Query = $"INSERT INTO `facturadetalle` (`idFacturaDetalle`, `facNumero`, `facProducto`, `facCantidad`) " +
+                    $"VALUES ('{cENatur.Facturadetalle}', '{cENatur.facNumero}', '{cENatur.Codigo}', '{cENatur.cantidad}');";
+                MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Registro exitoso");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error");
+                throw;
+            }
+
+            finally
+            {
+                if (mySqlConnection.State == ConnectionState.Open)
+                {
+                    mySqlConnection.Close();
+                }
+            }
+            
+        }
+        public MySqlDataReader ListarFactura(int cENatur)
+        {
+            string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
+            MySqlDataReader reader = null;
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"Select * from facturadetalle where (idFacuraDetalle = {cENatur});";
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+            reader = cmd.ExecuteReader();
+            return reader;
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Encontrado");
         }
     }
 }

@@ -17,8 +17,7 @@ namespace CapaPresentacion
         {
             if (txtUsuarios.Text == user && txtContraseñas.Text == pass)
             {
-                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-                this.Hide();
+                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();                
                 frmMenuPrincipal.ShowDialog(this);
             }
             else 
