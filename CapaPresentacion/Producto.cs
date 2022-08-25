@@ -93,6 +93,9 @@ namespace CapaPresentacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            var funciones = new CNNatur();
+            txtActualizar.DataSource = funciones.ListarProductos();
+            txtActualizar.DisplayMember = "proCodigo";
             GridConsultar.Rows.Clear();
             var Tabla = cnNatur.Listar();
             var NumeroFilas = Tabla.Rows.Count;
@@ -124,16 +127,18 @@ namespace CapaPresentacion
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
+        {            
             if (txtEliminar.Text == "0") return;
             if (MessageBox.Show("¿Desea eliminar el registro?", "Titulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 CENatur producto = new CENatur();
                 producto.Codigo = int.Parse(txtEliminar.Text);
                 cnNatur.Deletear(producto);
-                txtEliminar.Text = "";
+                var funciones = new CNNatur();
+                txtEliminar.DataSource = funciones.ListarProductos();
+                txtEliminar.DisplayMember = "proCodigo";
             }
+           
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -149,6 +154,9 @@ namespace CapaPresentacion
                     txtDescAct.Text = reader.GetString(2);
                     txtValorAc.Text = reader.GetString(3);
                     txtCanAc.Text = reader.GetString(4);
+                    var funciones = new CNNatur();
+                    txtActualizar.DataSource = funciones.ListarProductos();
+                    txtActualizar.DisplayMember = "proCodigo";
                 }
             }
             else
