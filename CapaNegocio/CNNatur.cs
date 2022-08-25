@@ -1,8 +1,7 @@
-﻿using CapaEntidad;
-using CapaDatos;
-using System.Windows.Forms;
-using System.Data;
+﻿using CapaDatos;
+using CapaEntidad;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace CapaNegocio
 {
@@ -21,7 +20,7 @@ namespace CapaNegocio
             {
                 MessageBox.Show("Campo descripcion esta vacio");
             }
-            if (producto.valor < 0 )
+            if (producto.valor < 0)
             {
                 MessageBox.Show("Campo valor es invalido");
             }
@@ -76,10 +75,10 @@ namespace CapaNegocio
         {
             cDNatur.AgregarProductoFactura(cENatur);
         }
-        public MySqlDataReader ListarFactura(int cENatur)
+        public DataTable ListarFactura(int cENatur)
         {
             return cDNatur.ListarFactura(cENatur);
         }
-        
+
     }
 }

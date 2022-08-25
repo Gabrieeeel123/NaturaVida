@@ -1,7 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using CapaEntidad;
-using System.Windows.Forms;
+﻿using CapaEntidad;
+using MySql.Data.MySqlClient;
 using System.Data;
 namespace CapaDatos
 {
@@ -24,7 +22,7 @@ namespace CapaDatos
             MessageBox.Show("Conexión exitosa");
         }
         public void Registrar(CENatur cENatur)
-        {            
+        {
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             try
             {
@@ -47,8 +45,8 @@ namespace CapaDatos
                 {
                     mySqlConnection.Close();
                 }
-            }            
-        }    
+            }
+        }
         public DataTable Listar()
         {
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
@@ -74,13 +72,13 @@ namespace CapaDatos
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             mySqlConnection.Open();
             string query = $"DELETE FROM `productos` WHERE (`proCodigo` = '{cENatur.Codigo}'); ";
-            MySqlCommand cmd = new MySqlCommand(query,mySqlConnection);
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
             cmd.ExecuteNonQuery();
             mySqlConnection.Close();
             MessageBox.Show("Registro Eliminado");
         }
         public MySqlDataReader BuscarPorCodigo(int cENatur)
-        {           
+        {
             string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
             MySqlDataReader reader = null;
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
@@ -90,7 +88,7 @@ namespace CapaDatos
             reader = cmd.ExecuteReader();
             return reader;
             mySqlConnection.Close();
-            MessageBox.Show("Registro Encontrado");            
+            MessageBox.Show("Registro Encontrado");
         }
         public void Actualizar(CENatur cENatur)
         {
@@ -161,8 +159,7 @@ namespace CapaDatos
             try
             {
                 mySqlConnection.Open();
-                string Query = $"INSERT INTO `facturadetalle` (`idFacturaDetalle`, `facNumero`, `facProducto`, `facCantidad`) " +
-                    $"VALUES ('{cENatur.Facturadetalle}', '{cENatur.facNumero}', '{cENatur.Codigo}', '{cENatur.cantidad}');";
+                string Query = $"INSERT INTO `facturadetalle` (`facNumero`, `facProducto`, `facCantidad`) VALUES ('{cENatur.facNumero}', '{cENatur.Codigo}', '{cENatur.cantidad}');";
                 MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
                 cmd.ExecuteNonQuery();
                 mySqlConnection.Close();
@@ -181,18 +178,18 @@ namespace CapaDatos
                     mySqlConnection.Close();
                 }
             }
-            
+
         }
-        public MySqlDataReader ListarFactura(int cENatur)
+        public DataTable ListarFactura(int cENatur)
         {
             string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
-            MySqlDataReader reader = null;
+            DataTable ds = new DataTable();
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             mySqlConnection.Open();
-            string query = $"Select * from facturadetalle where (idFacuraDetalle = {cENatur});";
-            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-            reader = cmd.ExecuteReader();
-            return reader;
+            string query = $"Select * from facturadetalle where (facNumero = {cENatur});";
+            MySqlDataAdapter cmd = new MySqlDataAdapter(query, mySqlConnection);
+            cmd.Fill(ds);
+            return ds;
             mySqlConnection.Close();
             MessageBox.Show("Registro Encontrado");
         }

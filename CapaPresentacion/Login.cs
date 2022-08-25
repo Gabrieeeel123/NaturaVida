@@ -1,6 +1,4 @@
-using CapaEntidad;
 using CapaNegocio;
-using System.Windows.Forms;
 namespace CapaPresentacion
 {
     public partial class login : Form
@@ -17,10 +15,10 @@ namespace CapaPresentacion
         {
             if (txtUsuarios.Text == user && txtContraseñas.Text == pass)
             {
-                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();                
+                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
                 frmMenuPrincipal.ShowDialog(this);
             }
-            else 
+            else
             {
                 MessageBox.Show("Usuario o contraseña incorrecta");
             }

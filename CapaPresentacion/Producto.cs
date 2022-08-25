@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using CapaEntidad;
 using CapaNegocio;
-using CapaEntidad;
 using MySql.Data.MySqlClient;
 
 namespace CapaPresentacion
@@ -44,7 +35,7 @@ namespace CapaPresentacion
             pnlConsultar.Visible = false;
             pnlEliminar.Visible = false;
             pnlInsertarProducto.Visible = false;
-           
+
         }
 
         private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +56,7 @@ namespace CapaPresentacion
             producto.valor = double.Parse(txtValor.Text);
             producto.Nombre = txtNombrePro.Text;
             producto.cantidad = int.Parse(txtCantidad.Text);
-            
+
             if (producto.Codigo > 0)
             {
                 cnNatur.Insertar(producto);
@@ -97,6 +88,7 @@ namespace CapaPresentacion
             txtActualizar.DataSource = funciones.ListarProductos();
             txtActualizar.DisplayMember = "proCodigo";
             GridConsultar.Rows.Clear();
+
             var Tabla = cnNatur.Listar();
             var NumeroFilas = Tabla.Rows.Count;
             if (NumeroFilas > 0)
@@ -123,11 +115,11 @@ namespace CapaPresentacion
             txtEliminar.DataSource = funciones.ListarProductos();
             txtEliminar.DisplayMember = "proCodigo";
 
-            
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
-        {            
+        {
             if (txtEliminar.Text == "0") return;
             if (MessageBox.Show("¿Desea eliminar el registro?", "Titulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -138,13 +130,13 @@ namespace CapaPresentacion
                 txtEliminar.DataSource = funciones.ListarProductos();
                 txtEliminar.DisplayMember = "proCodigo";
             }
-           
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
-        {         
-            
-            MySqlDataReader reader = cnNatur.BuscarPorCodigo(int.Parse(txtActualizar.Text));           
+        {
+
+            MySqlDataReader reader = cnNatur.BuscarPorCodigo(int.Parse(txtActualizar.Text));
             if (reader.HasRows)
             {
                 while (reader.Read())

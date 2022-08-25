@@ -43,6 +43,10 @@
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.txtTotalFactura = new System.Windows.Forms.TextBox();
             this.GridFactura = new System.Windows.Forms.DataGridView();
+            this.idColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,11 +171,36 @@
             // GridFactura
             // 
             this.GridFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumna,
+            this.facNumero,
+            this.facProducto,
+            this.facCantidad});
             this.GridFactura.Location = new System.Drawing.Point(43, 189);
             this.GridFactura.Name = "GridFactura";
             this.GridFactura.RowTemplate.Height = 25;
             this.GridFactura.Size = new System.Drawing.Size(707, 186);
             this.GridFactura.TabIndex = 14;
+            // 
+            // idColumna
+            // 
+            this.idColumna.HeaderText = "idFactura";
+            this.idColumna.Name = "idColumna";
+            // 
+            // facNumero
+            // 
+            this.facNumero.HeaderText = "Numero Factura";
+            this.facNumero.Name = "facNumero";
+            // 
+            // facProducto
+            // 
+            this.facProducto.HeaderText = "ProductoFactura";
+            this.facProducto.Name = "facProducto";
+            // 
+            // facCantidad
+            // 
+            this.facCantidad.HeaderText = "Cantidad";
+            this.facCantidad.Name = "facCantidad";
             // 
             // Facturacion
             // 
@@ -219,5 +248,9 @@
         private Button btnAgregarProducto;
         private TextBox txtTotalFactura;
         private DataGridView GridFactura;
+        private DataGridViewTextBoxColumn idColumna;
+        private DataGridViewTextBoxColumn facNumero;
+        private DataGridViewTextBoxColumn facProducto;
+        private DataGridViewTextBoxColumn facCantidad;
     }
 }
