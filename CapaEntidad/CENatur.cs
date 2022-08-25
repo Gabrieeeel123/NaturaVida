@@ -11,7 +11,7 @@ namespace CapaEntidad
 
 
         public int facNumero { get; set; }
-        public DateTime facFecha { get; set; }
+        public DateOnly facFecha { get; set; }
         public int facCliente { get; set; }
         public double facValorTotal { get; set; }
         public int facVen { get; set; }

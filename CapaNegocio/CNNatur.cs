@@ -79,6 +79,14 @@ namespace CapaNegocio
         {
             return cDNatur.ListarFactura(cENatur);
         }
+        public DataTable BuscarCodigoFactura()
+        {
+            return cDNatur.BuscarPorCodigoFactura();
+        }
+        public void GenerarFactura(CENatur cENatur)
+        {
+            cDNatur.GenerarFactura(cENatur);
+        }
 
     }
 }

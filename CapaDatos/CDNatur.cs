@@ -193,5 +193,26 @@ namespace CapaDatos
             mySqlConnection.Close();
             MessageBox.Show("Registro Encontrado");
         }
+        public DataTable BuscarPorCodigoFactura()
+        {            
+            DataTable ds = new DataTable();
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"Select `facNumero` from facturas;";
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);            
+            adaptador.Fill(ds);
+            return ds;
+            mySqlConnection.Close();            
+        }
+        public void GenerarFactura(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);            
+            mySqlConnection.Open();
+            string Query = $"INSERT INTO `facturas` (`facNumero`, `facFecha`) VALUES('{cENatur.facNumero}', '{cENatur.facFecha}');";
+            MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+            cmd.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro exitoso");
+        }
     }
 }
