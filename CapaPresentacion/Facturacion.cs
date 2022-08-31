@@ -41,10 +41,11 @@ namespace CapaPresentacion
             if (codigoFactura.Columns.ToString()!=txtCodigo.Text)
             {
                 produto.facNumero = int.Parse(txtCodigo.Text);
-                produto.facFecha = DateOnly.Parse(txtFecha.Text);
+                produto.facFecha = txtFecha.Text;
                 CNNatur.GenerarFactura(produto);
 
             }
+            CNNatur.ActualizarFactura(produto);
 
             produto.Codigo = int.Parse(txtProducto.Text);
             produto.cantidad = int.Parse(txtCantidad.Text);

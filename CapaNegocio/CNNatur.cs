@@ -87,6 +87,9 @@ namespace CapaNegocio
         {
             cDNatur.GenerarFactura(cENatur);
         }
-
+        public void ActualizarFactura(CENatur cENatur)
+        {
+            cDNatur.ActualizarFactura(cENatur); 
+        }
     }
 }

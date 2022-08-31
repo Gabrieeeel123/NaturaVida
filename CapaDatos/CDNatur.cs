@@ -208,11 +208,21 @@ namespace CapaDatos
         {
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);            
             mySqlConnection.Open();
-            string Query = $"INSERT INTO `facturas` (`facNumero`, `facFecha`) VALUES('{cENatur.facNumero}', '{cENatur.facFecha}');";
+            string Query = $"INSERT INTO `facturas` (`facNumero`, `fecha`) VALUES('{cENatur.facNumero}', '{cENatur.facFecha}');";
             MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
             cmd.ExecuteNonQuery();
             mySqlConnection.Close();
             MessageBox.Show("Registro exitoso");
+        }
+        public void ActualizarFactura(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string Query = $"UPDATE `facturas` SET `facValorTotal` = '{cENatur.facValorTotal}' WHERE (`facNumero` = '{cENatur.facNumero}');";
+            MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+            cmd.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Actualizacion exitosa");
         }
     }
 }
