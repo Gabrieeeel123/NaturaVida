@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -40,9 +41,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(309, 67);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.YellowGreen;
+            this.label4.Location = new System.Drawing.Point(299, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 30);
+            this.label4.Size = new System.Drawing.Size(237, 48);
             this.label4.TabIndex = 0;
             this.label4.Text = "Sistema de informacion\r\nNaturVida\r\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,49 +54,60 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(191, 159);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(206, 166);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 15);
+            this.label5.Size = new System.Drawing.Size(99, 24);
             this.label5.TabIndex = 1;
             this.label5.Text = "Usuario :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(191, 209);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(183, 224);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 15);
+            this.label6.Size = new System.Drawing.Size(133, 24);
             this.label6.TabIndex = 2;
             this.label6.Text = "Contraseña :";
             // 
             // btnIngreso
             // 
-            this.btnIngreso.Location = new System.Drawing.Point(322, 274);
+            this.btnIngreso.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnIngreso.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIngreso.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnIngreso.Location = new System.Drawing.Point(328, 318);
             this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Size = new System.Drawing.Size(75, 23);
+            this.btnIngreso.Size = new System.Drawing.Size(138, 37);
             this.btnIngreso.TabIndex = 3;
             this.btnIngreso.Text = "Ingresar";
-            this.btnIngreso.UseVisualStyleBackColor = true;
+            this.btnIngreso.UseVisualStyleBackColor = false;
             this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // txtUsuarios
             // 
-            this.txtUsuarios.Location = new System.Drawing.Point(322, 151);
+            this.txtUsuarios.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUsuarios.Location = new System.Drawing.Point(342, 166);
             this.txtUsuarios.Name = "txtUsuarios";
-            this.txtUsuarios.Size = new System.Drawing.Size(100, 23);
+            this.txtUsuarios.Size = new System.Drawing.Size(244, 31);
             this.txtUsuarios.TabIndex = 4;
             // 
             // txtContraseñas
             // 
-            this.txtContraseñas.Location = new System.Drawing.Point(322, 201);
+            this.txtContraseñas.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtContraseñas.Location = new System.Drawing.Point(342, 224);
             this.txtContraseñas.Name = "txtContraseñas";
-            this.txtContraseñas.Size = new System.Drawing.Size(100, 23);
+            this.txtContraseñas.Size = new System.Drawing.Size(244, 31);
             this.txtContraseñas.TabIndex = 5;
             this.txtContraseñas.UseSystemPasswordChar = true;
             // 
             // Prueba
             // 
-            this.Prueba.Location = new System.Drawing.Point(584, 404);
+            this.Prueba.Location = new System.Drawing.Point(694, 415);
             this.Prueba.Name = "Prueba";
             this.Prueba.Size = new System.Drawing.Size(75, 23);
             this.Prueba.TabIndex = 6;
@@ -104,6 +119,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Prueba);
             this.Controls.Add(this.txtContraseñas);
