@@ -123,6 +123,14 @@ namespace CapaNegocio
         {
             cDNatur.ActualizarCliente(cENatur);
         }
+        public MySqlDataReader IniciarSesion(CENatur cENatur)
+        {
+            return cDNatur.IniciarSesion(cENatur);
+        }
+        public CENatur ExisteUsuario(CENatur cENatur)
+        {
+            return cDNatur.existeUsuario(cENatur);
+        }
 
     }
 }

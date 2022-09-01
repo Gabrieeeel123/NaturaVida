@@ -67,7 +67,7 @@
             // 
             // btnIngreso
             // 
-            this.btnIngreso.Location = new System.Drawing.Point(347, 296);
+            this.btnIngreso.Location = new System.Drawing.Point(322, 274);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(75, 23);
             this.btnIngreso.TabIndex = 3;

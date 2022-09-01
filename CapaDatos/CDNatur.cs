@@ -1,6 +1,8 @@
 ﻿using CapaEntidad;
 using MySql.Data.MySqlClient;
 using System.Data;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+
 namespace CapaDatos
 {
     public class CDNatur
@@ -341,6 +343,36 @@ namespace CapaDatos
             return reader;
             mySqlConnection.Close();
             MessageBox.Show("Registro Encontrado");
-        }              
+        }
+        public MySqlDataReader IniciarSesion(CENatur cENatur)
+        {
+            string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
+            MySqlDataReader reader = null;
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"Select venUsuario,venContraseña from vendedores where venUsuario = '{cENatur.usuario}' and venContraseña ='{cENatur.contraseña}';";
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+            reader = cmd.ExecuteReader();
+            return reader;
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Encontrado");
+        }
+        public CENatur existeUsuario(CENatur usuario)
+        {
+            MySqlDataReader reader;
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string Query = $"Select venUsuario,venContraseña from vendedores where venUsuario = '{usuario.usuario}' and venContraseña = '{usuario.contraseña}';";
+            MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+            cmd.Parameters.AddWithValue("venUsuario" ,usuario);
+            reader = cmd.ExecuteReader();
+            CENatur usr = new CENatur();
+            while (reader.Read())
+            {                
+                usr.usuario= reader["venUsuario"].ToString();
+                usr.contraseña = reader["venContraseña"].ToString();
+            }
+            return usr;
+        }
     }
 }

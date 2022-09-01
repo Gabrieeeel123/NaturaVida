@@ -76,16 +76,7 @@ namespace CapaPresentacion
                     GridFactura.Rows.Clear();
                     ListarProductos();
                 }
-            }            
-                    
-
-               
-
-                   
-                
-            
-
-
+            }         
             //CNNatur.ActualizarFactura(produto);
 
 
