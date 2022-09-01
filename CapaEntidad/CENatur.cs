@@ -16,7 +16,11 @@ namespace CapaEntidad
         public double facValorTotal { get; set; }
         public int facVen { get; set; }
         public int Facturadetalle { get; set; }
-
+        public int documento { get; set; }
+        public string nombreCliente { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string correo { get; set; }
         public CENatur()
         {
 

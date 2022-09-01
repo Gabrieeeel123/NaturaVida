@@ -257,7 +257,90 @@ namespace CapaDatos
             mySqlConnection.Close();
             MessageBox.Show("Actualizacion exitosa");
         }
+        public void ActualizarCliente(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            try
+            {
+                mySqlConnection.Open();
+                string Query = $"UPDATE `clientes` SET `clinombre` = '{cENatur.nombreCliente}', `clidireccion` = '{cENatur.direccion}', `clitelefono` = '{cENatur.telefono}', `clicorreo` = '{cENatur.correo}' WHERE (`clidocumento` = '{cENatur.documento}');";
+                MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Actualizacion exitosa");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error");
+                throw;
+            }
 
+            finally
+            {
+                if (mySqlConnection.State == ConnectionState.Open)
+                {
+                    mySqlConnection.Close();
+                }
+            }
+        }
+        public void RegistrarCliente(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            try
+            {
+                mySqlConnection.Open();
+                string Query = $"INSERT INTO `clientes` (`clidocumento`, `clinombre`, `clidireccion`, `clitelefono`, `clicorreo`) VALUES ('{cENatur.documento}', '{cENatur.nombreCliente}', '{cENatur.direccion}', '{cENatur.telefono}', '{cENatur.correo}');";
+                MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Registro exitoso");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error");
+                throw;
+            }
+
+            finally
+            {
+                if (mySqlConnection.State == ConnectionState.Open)
+                {
+                    mySqlConnection.Close();
+                }
+            }
+        }
+        public DataTable ListarCliente()
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            DataTable ds = new DataTable();
+            mySqlConnection.Open();
+            string query = "SELECT * FROM `clientes` limit 1000;";
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);
+            adaptador.Fill(ds);
+            return ds;
+        }
+        public void DeletearCliente(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"DELETE FROM `clientes` WHERE (`clidocumento` = '{cENatur.documento}'); ";
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+            cmd.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Eliminado");
+        }
+        public MySqlDataReader BuscarPorDocumento(int cENatur)
+        {
+            string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
+            MySqlDataReader reader = null;
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"Select * from clientes where (clidocumento = {cENatur});";
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+            reader = cmd.ExecuteReader();
+            return reader;
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Encontrado");
+        }              
     }
 }
-//UPDATE `facturas` SET `facValorTotal` = '100' WHERE (`facNumero` = '1');
