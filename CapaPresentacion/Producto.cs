@@ -90,7 +90,8 @@ namespace CapaPresentacion
             GridConsultar.Rows.Clear();
 
             var Tabla = cnNatur.Listar();
-            var NumeroFilas = Tabla.Rows.Count;
+            GridConsultar.DataSource = Tabla;
+            /*var NumeroFilas = Tabla.Rows.Count;
             if (NumeroFilas > 0)
             {
                 for (int i = 0; i < NumeroFilas; i++)
@@ -103,7 +104,7 @@ namespace CapaPresentacion
                     GridConsultar.Rows.Add(Nombre, Descipcion, Valor, Cantidad);
                 }
 
-            }
+            }*/
         }
 
         private void Producto_Load(object sender, EventArgs e)

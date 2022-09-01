@@ -59,22 +59,8 @@ namespace CapaPresentacion
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             GridConsultar.Rows.Clear();
-
             var Tabla = cnNatur.ListarCliente();
-            var NumeroFilas = Tabla.Rows.Count;
-            if (NumeroFilas > 0)
-            {
-                for (int i = 0; i < NumeroFilas; i++)
-                {
-                    String cliDocumento = Tabla.Rows[i][0].ToString();
-                    String cliNombre = Tabla.Rows[i][1].ToString();
-                    String cliDireccion = Tabla.Rows[i][2].ToString();
-                    String cliTelefono = Tabla.Rows[i][3].ToString();
-                    String cliCorreo = Tabla.Rows[i][4].ToString();
-
-                    GridConsultar.Rows.Add(cliDocumento, cliNombre, cliDireccion, cliTelefono, cliCorreo);
-                }
-            }
+            GridConsultar.DataSource = Tabla;
         }
 
         private void brnBuscar_Click(object sender, EventArgs e)

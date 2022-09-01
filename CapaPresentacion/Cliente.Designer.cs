@@ -64,11 +64,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtEliminar = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.cliDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliDirrecion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -227,12 +222,6 @@
             // GridConsultar
             // 
             this.GridConsultar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridConsultar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cliDocumento,
-            this.cliNombre,
-            this.cliDirrecion,
-            this.cliTelefono,
-            this.cliCorreo});
             this.GridConsultar.Location = new System.Drawing.Point(24, 77);
             this.GridConsultar.Name = "GridConsultar";
             this.GridConsultar.RowTemplate.Height = 25;
@@ -430,31 +419,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Cliente";
             // 
-            // cliDocumento
-            // 
-            this.cliDocumento.HeaderText = "Documento";
-            this.cliDocumento.Name = "cliDocumento";
-            // 
-            // cliNombre
-            // 
-            this.cliNombre.HeaderText = "Nombre";
-            this.cliNombre.Name = "cliNombre";
-            // 
-            // cliDirrecion
-            // 
-            this.cliDirrecion.HeaderText = "Direccion";
-            this.cliDirrecion.Name = "cliDirrecion";
-            // 
-            // cliTelefono
-            // 
-            this.cliTelefono.HeaderText = "Telefono";
-            this.cliTelefono.Name = "cliTelefono";
-            // 
-            // cliCorreo
-            // 
-            this.cliCorreo.HeaderText = "Correo";
-            this.cliCorreo.Name = "cliCorreo";
-            // 
             // Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -515,10 +479,5 @@
         private Button btnEliminar;
         private ComboBox txtEliminar;
         private Label label12;
-        private DataGridViewTextBoxColumn cliDocumento;
-        private DataGridViewTextBoxColumn cliNombre;
-        private DataGridViewTextBoxColumn cliDirrecion;
-        private DataGridViewTextBoxColumn cliTelefono;
-        private DataGridViewTextBoxColumn cliCorreo;
     }
 }

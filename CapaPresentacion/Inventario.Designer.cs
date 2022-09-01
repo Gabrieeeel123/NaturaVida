@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtInventarear = new System.Windows.Forms.ComboBox();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.GridInventario = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.GridInventario)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,28 +60,29 @@
             this.btnConsultar.TabIndex = 2;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // dataGridView1
+            // GridInventario
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(65, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 247);
-            this.dataGridView1.TabIndex = 3;
+            this.GridInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridInventario.Location = new System.Drawing.Point(65, 155);
+            this.GridInventario.Name = "GridInventario";
+            this.GridInventario.RowTemplate.Height = 25;
+            this.GridInventario.Size = new System.Drawing.Size(674, 247);
+            this.GridInventario.TabIndex = 3;
             // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GridInventario);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.txtInventarear);
             this.Controls.Add(this.label1);
             this.Name = "frmInventario";
             this.Text = "Inventario";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,6 +93,6 @@
         private Label label1;
         private ComboBox txtInventarear;
         private Button btnConsultar;
-        private DataGridView dataGridView1;
+        private DataGridView GridInventario;
     }
 }
