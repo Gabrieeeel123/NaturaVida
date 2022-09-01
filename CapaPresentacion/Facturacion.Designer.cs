@@ -47,6 +47,7 @@
             this.facNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizarfactura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +100,7 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(114, 34);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(285, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(290, 23);
             this.txtCodigo.TabIndex = 5;
             // 
             // txtCliente
@@ -138,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(405, 42);
+            this.label6.Location = new System.Drawing.Point(419, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 10;
@@ -165,6 +166,7 @@
             // 
             this.txtTotalFactura.Location = new System.Drawing.Point(588, 395);
             this.txtTotalFactura.Name = "txtTotalFactura";
+            this.txtTotalFactura.ReadOnly = true;
             this.txtTotalFactura.Size = new System.Drawing.Size(100, 23);
             this.txtTotalFactura.TabIndex = 13;
             // 
@@ -202,11 +204,22 @@
             this.facCantidad.HeaderText = "Cantidad";
             this.facCantidad.Name = "facCantidad";
             // 
+            // btnActualizarfactura
+            // 
+            this.btnActualizarfactura.Location = new System.Drawing.Point(486, 151);
+            this.btnActualizarfactura.Name = "btnActualizarfactura";
+            this.btnActualizarfactura.Size = new System.Drawing.Size(144, 23);
+            this.btnActualizarfactura.TabIndex = 15;
+            this.btnActualizarfactura.Text = "Actualizar factura";
+            this.btnActualizarfactura.UseVisualStyleBackColor = true;
+            this.btnActualizarfactura.Click += new System.EventHandler(this.btnActualizarfactura_Click);
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnActualizarfactura);
             this.Controls.Add(this.GridFactura);
             this.Controls.Add(this.txtTotalFactura);
             this.Controls.Add(this.btnAgregarProducto);
@@ -252,5 +265,6 @@
         private DataGridViewTextBoxColumn facNumero;
         private DataGridViewTextBoxColumn facProducto;
         private DataGridViewTextBoxColumn facCantidad;
+        private Button btnActualizarfactura;
     }
 }

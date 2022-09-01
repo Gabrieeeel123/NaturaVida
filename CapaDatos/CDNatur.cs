@@ -194,21 +194,21 @@ namespace CapaDatos
             MessageBox.Show("Registro Encontrado");
         }
         public DataTable BuscarPorCodigoFactura()
-        {            
+        {
             DataTable ds = new DataTable();
             MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             mySqlConnection.Open();
             string query = $"Select `facNumero` from facturas;";
-            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);            
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(query, mySqlConnection);
             adaptador.Fill(ds);
             return ds;
-            mySqlConnection.Close();            
+            mySqlConnection.Close();
         }
         public void GenerarFactura(CENatur cENatur)
         {
-            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);            
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             mySqlConnection.Open();
-            string Query = $"INSERT INTO `facturas` (`facNumero`, `fecha`) VALUES('{cENatur.facNumero}', '{cENatur.facFecha}');";
+            string Query = $"INSERT INTO `facturas` (`facNumero`, `fecha` ,`facCliente` ) VALUES('{cENatur.facNumero}', '{cENatur.facFecha}','{cENatur.facCliente}');";
             MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
             cmd.ExecuteNonQuery();
             mySqlConnection.Close();
@@ -224,5 +224,40 @@ namespace CapaDatos
             mySqlConnection.Close();
             MessageBox.Show("Actualizacion exitosa");
         }
+        public void GenerarPrimerProducto(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string Query = $"INSERT INTO `facturadetalle` (`facNumero`, `facProducto`, `facCantidad`) VALUES ('{cENatur.facNumero}', '{cENatur.Codigo}', '{cENatur.cantidad}');";
+            MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+            cmd.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro exitoso");
+        }
+        public MySqlDataReader TerminarFactura(int cENatur)
+        {
+            string cadenaConexion = "Server=Localhost;User=root;Password=admin;Port=3306;database=naturvida";
+            MySqlDataReader reader = null;
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string query = $"select sum(p.proValor*fd.facCantidad) as ValorTotal from (facturas f inner join facturadetalle fd on f.facNumero = fd.facNumero) inner join productos p on fd.facProducto = p.proCodigo where f.facNumero = {cENatur} group by f.facNumero";
+            MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+            reader = cmd.ExecuteReader();
+            return reader;
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Encontrado");
+        }
+        public void GuardarFactura(CENatur cENatur)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string Query = $"UPDATE `facturas` SET `facValorTotal` = '{cENatur.facValorTotal}' WHERE (`facNumero` = '{cENatur.facNumero}');";
+            MySqlCommand cmd = new MySqlCommand(Query, mySqlConnection);
+            cmd.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Actualizacion exitosa");
+        }
+
     }
 }
+//UPDATE `facturas` SET `facValorTotal` = '100' WHERE (`facNumero` = '1');

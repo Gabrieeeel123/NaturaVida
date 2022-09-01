@@ -34,7 +34,6 @@ namespace CapaNegocio
             }
             return resultado;
         }
-
         public void PruebaMySQL()
         {
             cDNatur.pruebaConexion();
@@ -89,7 +88,19 @@ namespace CapaNegocio
         }
         public void ActualizarFactura(CENatur cENatur)
         {
-            cDNatur.ActualizarFactura(cENatur); 
+            cDNatur.ActualizarFactura(cENatur);
+        }
+        public void AgregarPrimerProducto(CENatur cENatur)
+        {
+            cDNatur.GenerarPrimerProducto(cENatur);
+        }
+        public MySqlDataReader TerminarFactura(int ceNatur)
+        {
+            return cDNatur.TerminarFactura(ceNatur);
+        }
+        public void GuardarFacturaMiauMiau(CENatur cENatur)
+        {
+            cDNatur.GuardarFactura(cENatur);
         }
     }
 }

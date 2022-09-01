@@ -127,7 +127,7 @@ namespace CapaPresentacion
                 CENatur producto = new CENatur();
                 producto.Codigo = int.Parse(txtEliminar.Text);
                 cnNatur.Deletear(producto);
-                
+
                 txtEliminar.DataSource = funciones.ListarProductos();
                 txtEliminar.DisplayMember = "proCodigo";
             }
