@@ -24,5 +24,11 @@
             frmInventario inventario = new frmInventario();
             inventario.ShowDialog();
         }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();    
+            cliente.ShowDialog();
+        }
     }
 }
